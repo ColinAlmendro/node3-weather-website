@@ -6,7 +6,7 @@ const forecast = require("./utils/forecast");
 const geocode = require("./utils/geocode");
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 //define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -24,7 +24,7 @@ app.use(express.static(publicDirectoryPath));
 app.get("", (req, res) => {
 	res.render("index", {
 		title: "Weather App",
-		name: "Colin Edward",
+		name: "Colin Almendro",
 	});
 });
 
@@ -40,7 +40,7 @@ app.get("/about", (req, res) => {
 app.get("/help", (req, res) => {
 	res.render("help", {
 		title: "Help Page",
-		message: "How can i help you",
+		message: "Enter a location name and hit the search button.",
 		name: "Colin Almendro",
 	});
 });
