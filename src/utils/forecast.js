@@ -10,12 +10,18 @@ const forecast = (latitude, longitude, callback) => {
 			callback("Unable to find location for these co-ordinates", undefined);
 		} else {
 			const current = body.current;
+			console.log(current);
 			const currTemp = current.temperature;
 			const feelsLikeTemp = current.feelslike;
-
+			const wind_speed = current.wind_speed;
+			const wind_dir = current.wind_dir;
+			const weather_description = current.weather_descriptions[0];
 			callback(undefined, {
-				currTemp: currTemp,
-				feelsLikeTemp: feelsLikeTemp,
+				currTemp,
+				feelsLikeTemp,
+				wind_speed,
+				wind_dir,
+				weather_description,
 			});
 		}
 	});

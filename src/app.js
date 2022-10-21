@@ -61,15 +61,15 @@ app.get("/weather", (req, res) => {
 			forecast(
 				latitude,
 				longitude,
-				(error, { currTemp, feelsLikeTemp } = {}) => {
+				(error, { currTemp, feelsLikeTemp, weather_description } = {}) => {
 					if (error) {
 						return console.log(`Forecast error : ${error}`);
 					}
 					let msg = "";
 					if (currTemp !== feelsLikeTemp) {
-						msg = `It is currently ${currTemp} degrees outside but feels like ${feelsLikeTemp} degrees.`;
+						msg = `${weather_description}. \n It is currently ${currTemp} degrees outside but feels like ${feelsLikeTemp} degrees.`;
 					} else {
-						msg = `It is currently ${currTemp} degrees outside.`;
+						msg = `${weather_description}. \n It is currently ${currTemp} degrees outside.`;
 					}
 					res.send({
 						location,
